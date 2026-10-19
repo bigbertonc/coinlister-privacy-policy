@@ -16,32 +16,31 @@
 <body>
 <main>
   <h1>CoinLister AI Privacy Policy</h1>
-  <p class="meta">Effective October 18, 2026</p>
-  <p>CoinLister AI is a private Windows application being built for its owner's coin listing workflow. This policy describes its current eBay Sandbox connection feature and the planned local handling of coin photographs and listing information. The policy will be updated before those planned features are enabled.</p>
+  <p class="meta">Effective October 19, 2026</p>
+  <p>CoinLister AI is a private Windows application for its owner's coin listing workflow. It currently connects to eBay Sandbox and stores local coin photographs and listing drafts. AI identification is optional and runs only when the owner clicks Identify.</p>
 
   <h2>Information handled</h2>
   <ul>
     <li><strong>eBay connection:</strong> With the owner's consent, CoinLister AI receives OAuth access and refresh tokens from eBay. It uses them to check authorization and make read-only eBay Sandbox API requests. If eBay's Identity API provides an account name or identifier, the app displays it to the owner during a connection check. The app does not request or store the eBay account password.</li>
-    <li><strong>Coin photographs and listing information:</strong> These features are not implemented in the current connection-only version. When added, photographs and listing details are intended to remain on the owner's Windows computer. They will not be sent to an external AI or cloud processing service under this policy.</li>
+    <li><strong>Coin photographs and listing information:</strong> The app stores uploaded photographs, draft details, and AI identification results in the owner's local Windows AppData folder. When the owner clicks Identify, the app sends resized, metadata-free renditions of that draft's selected photographs to OpenAI for visual analysis. Original photo files are not sent. The app does not send listing drafts or eBay tokens to OpenAI.</li>
     <li><strong>App configuration:</strong> The owner enters eBay Sandbox application credentials and the OAuth RuName in a local configuration file. The application credential secret is treated as confidential.</li>
   </ul>
 
   <h2>Use and sharing</h2>
-  <p>CoinLister AI currently sends OAuth requests and read-only API requests to eBay to connect and verify the owner's Sandbox account. It does not create, revise, publish, end, or delete listings. The current version does not send coin photographs, listing details, or OAuth tokens to an AI provider, analytics provider, advertiser, or other third party. We do not sell this information.</p>
+  <p>CoinLister AI sends OAuth requests and read-only API requests to eBay Sandbox to connect and verify the owner's test account. It does not create, revise, publish, end, or delete listings. Only an explicit Identify action sends selected photo renditions to OpenAI. OpenAI processes them to return structured identification; its handling of API data is described in <a href="https://platform.openai.com/docs/guides/your-data">OpenAI's API data controls</a>. The app does not send photographs or drafts to analytics or advertising services, and we do not sell this information.</p>
 
   <h2>Storage and security</h2>
-  <p>OAuth tokens are encrypted in the Windows user's Local AppData folder. Their encryption key is stored separately in Windows Credential Manager. App credentials are kept in a local configuration file excluded from Git. The application's eBay requests use HTTPS, and its local interface is bound to the owner's computer.</p>
-  <p>The current project folder is under OneDrive. The local configuration file may be synchronized by OneDrive according to the owner's account settings. Encrypted OAuth token storage is outside that project folder. Future photograph and listing-data storage must be kept outside synchronized folders to meet the local-only practice stated here.</p>
+  <p>OAuth tokens are encrypted in the Windows user's Local AppData folder. Their encryption key is stored separately in Windows Credential Manager. eBay and OpenAI credentials are kept in local AppData configuration files excluded from Git. Original photographs and the SQLite draft database are also stored in local AppData, outside the OneDrive project folder. The application uses HTTPS for eBay and OpenAI requests; its local interface is bound to the owner's computer.</p>
 
   <h2>Retention and deletion</h2>
-  <p>The current app does not apply a fixed retention period. Encrypted OAuth tokens remain until the owner manually deletes the local token file or a new connection replaces them. App credentials remain until the owner removes them from the local configuration file. The app has no disconnect or deletion button yet, and it does not currently store coin photographs or listing information.</p>
-  <p>The owner can revoke the app's authorization in eBay account settings. Revocation prevents future authorized eBay API requests but does not erase local files. For help locating and deleting locally stored tokens or configuration, contact us below. We will update this policy when deletion controls or coin-data storage are implemented.</p>
+  <p>The app does not apply a fixed retention period. The owner can delete an individual local draft in the app; that action removes its database record and associated local photographs. OAuth tokens remain until the owner manually deletes the local token file or a new connection replaces them. App credentials remain until the owner removes them from local configuration. There is no in-app disconnect button yet.</p>
+  <p>The owner can revoke the app's authorization in eBay account settings. Revocation prevents future authorized eBay API requests but does not erase local files. Removing the app does not itself guarantee deletion of AppData files. For help locating and deleting locally stored tokens, photographs, drafts, or configuration, contact us below. OpenAI's retention of API requests is governed by its linked data controls, not by deletion of a local draft.</p>
 
   <h2>This policy website</h2>
   <p>This page is hosted on GitHub Pages. Visiting it connects the visitor's browser to GitHub, which handles technical visit information under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>. We do not add analytics, tracking scripts, or forms to this page. The page does not receive the app's credentials, tokens, photographs, or listing details.</p>
 
   <h2>Changes and contact</h2>
-  <p>We will update this notice before enabling new data uses, including coin photograph processing, cloud services, or listing-data storage. The effective date above will change when the policy changes.</p>
+  <p>We will update this notice when data uses or storage practices materially change. The effective date above will change when the policy changes.</p>
   <p>For privacy questions or deletion help, email <a href="mailto:bigbeardefensecompany@gmail.com">bigbeardefensecompany@gmail.com</a>.</p>
 </main>
 </body>
